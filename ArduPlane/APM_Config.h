@@ -41,6 +41,12 @@
 	GPS_PROTOCOL_MTK19
 */
 
+//Uncomment to select Flight Modes from a cicling list switchable by Mode Channel Switch
+#define MODES_CIRCLE ENABLED
+
+//Cannel used by Panic Button (Uncomment and set Channel number)
+#define PANIC_BUTTON_CH 6
+
 
 //#define HIL_MODE            HIL_MODE_DISABLED
 

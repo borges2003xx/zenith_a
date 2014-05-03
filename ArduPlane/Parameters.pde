@@ -17,6 +17,7 @@ const AP_Param::Info var_info[] PROGMEM = {
     GSCALAR(format_version,         "FORMAT_VERSION", 0),
     GSCALAR(software_type,          "SYSID_SW_TYPE",  Parameters::k_software_type),
 
+ 
     // @Param: SYSID_THISMAV
     // @DisplayName: MAVLink system ID
     // @Description: The identifier of this device in the MAVLink protocol

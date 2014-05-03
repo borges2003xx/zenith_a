@@ -57,6 +57,10 @@
 #ifndef CONFIG_HAL_BOARD
 #define CONFIG_HAL_BOARD  HAL_BOARD_MPNG
 #endif
+
+#ifndef MODES_CIRCLE
+#define MODES_CIRCLE  DISABLED
+#endif
 //////////////////////////////////////////////////////////////////////////////
 // APM HARDWARE
 //

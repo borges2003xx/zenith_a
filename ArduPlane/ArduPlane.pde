@@ -297,10 +297,13 @@ static bool usb_connected;
 enum FlightMode control_mode  = INITIALISING;
 // Used to maintain the state of the previous control switch position
 // This is set to -1 when we need to re-read the switch
-uint8_t oldSwitchPosition;
+int8_t oldSwitchPosition;
+// This is used for circle modes switch
+static int8_t flight_mode_selected;
+static int8_t max_selectable_f_modes = 9;
+unsigned long m_switch_time ; 
 // This is used to enable the inverted flight feature
 bool inverted_flight     = false;
-
 static struct {
     // These are trim values used for elevon control
     // For elevons radio_in[CH_ROLL] and radio_in[CH_PITCH] are

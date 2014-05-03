@@ -233,7 +233,11 @@ static void do_RTL(void)
 {
     control_mode    = RTL;
     next_WP                 = home;
-
+    
+    #if MODES_CIRCLE == ENABLED
+    flight_mode_selected = 8 ; 
+    #endif 
+    
     if (g.loiter_radius < 0) {
         loiter.direction = -1;
     } else {

@@ -16,6 +16,10 @@
 #define SERVO_MAX 4500  // This value represents 45 degrees and is just an
                         // arbitrary representation of servo max travel.
 
+// Circled FlightModes Switch
+// ----------------------
+#define MODES_CIRCLE  O
+
 // failsafe
 // ----------------------
 #define FAILSAFE_NONE   0
@@ -74,6 +78,7 @@ enum FlightMode {
     GUIDED        = 15,
     INITIALISING  = 16
 };
+
 
 // type of stick mixing enabled
 enum StickMixing {

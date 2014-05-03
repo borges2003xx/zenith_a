@@ -231,7 +231,13 @@ static NOINLINE void send_extended_status1(mavlink_channel_t chan, uint16_t pack
         battery_remaining,      // in %
         0, // comm drops %,
         0, // comm drops in pkts,
-        0, 0, 0, 0);
+        0, 0, 0,
+        #if MODES_CIRCLE == ENABLED
+        flight_mode_selected // flight mode selected as "errors_count4"
+        #else
+        0
+        #endif
+        );
 
 }
 
