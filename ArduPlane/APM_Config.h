@@ -25,7 +25,7 @@
  */
  
  // GPS port speed (Serial2) 38400 by default
-#define SERIAL2_BAUD 38400
+#define SERIAL2_BAUD 38400 
 
 // GPS driver selection
 #define GPS_PROTOCOL GPS_PROTOCOL_UBLOX
@@ -41,6 +41,12 @@
 	GPS_PROTOCOL_MTK19
 */
 
+//Uncomment to select Flight Modes from a cicling list switchable by Mode Channel Switch
+#define MODES_CIRCLE ENABLED
+
+//Cannel used by Panic Button (Uncomment and set Channel number)
+#define PANIC_BUTTON_CH 6
+
 
 //#define HIL_MODE            HIL_MODE_DISABLED
 
@@ -51,4 +57,5 @@
  *  // 2. HIL_MODE_SENSORS: full sensor simulation
  *
  */
+
 

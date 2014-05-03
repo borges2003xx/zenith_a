@@ -1,8 +1,5 @@
 // -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
-
-
-
 // filter altitude from the barometer with a low pass filter
 static LowPassFilterInt32 altitude_filter;
 
@@ -74,32 +71,13 @@ static void read_battery(void)
 
 // read the receiver RSSI as an 8 bit number for MAVLink
 // RC_CHANNELS_SCALED message
-/* vecchio lettore rssi che viene sotituito da dispetto per far leggere l'rssi che non si vede come da mail del 03-01-14
 void read_receiver_rssi(void)
-
 {
     rssi_analog_source->set_pin(g.rssi_pin);
     float ret = rssi_analog_source->voltage_average() * 50;
     receiver_rssi = constrain_int16(ret, 0, 255);
 }
-bip */
 
-// aggiungiamo a questo punto il pezzo di dispetto per leggere l'rssi che non si legge al 03-01-2014
-
-void read_receiver_rssi(void)
-{
-    rssi_analog_source->set_pin(g.rssi_pin);
-    float ret = rssi_analog_source->voltage_average() * 50;
-    if (ret > 255)
-        ret = 255;
-    if (ret < 0)
-        ret = 0;
-    ret -= 0;
-    receiver_rssi = (uint8_t) ret * 255 / 255;
-}
-
-
-//fine aggiunta
 
 /*
   return current_loc.alt adjusted for ALT_OFFSET

@@ -1,6 +1,6 @@
 /// -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
 #ifndef THISFIRMWARE
-#  define THISFIRMWARE "ArduPlane V2.74beta MPNG-R3b"
+#  define THISFIRMWARE "ArduPlane V2.74beta MPNG-R4 (Modded by dispetto & lothar)"
 #endif
 /*
  *  Lead developer: Andrew Tridgell
@@ -457,6 +457,12 @@ static int16_t takeoff_pitch_cd;
 
 // this controls throttle suppression in auto modes
 static bool throttle_suppressed;
+
+// This is used for circle modes switch
+static int8_t flight_mode_selected;
+static int8_t max_selectable_f_modes = 9;
+unsigned long m_switch_time ; 
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Loiter management
