@@ -54,9 +54,6 @@
 #error CONFIG_APM_HARDWARE option is depreated! use CONFIG_HAL_BOARD instead.
 #endif
 
-#ifndef CONFIG_HAL_BOARD
-#define CONFIG_HAL_BOARD  HAL_BOARD_MPNG
-#endif
 //////////////////////////////////////////////////////////////////////////////
 // APM HARDWARE
 //
@@ -98,9 +95,8 @@
  # define LED_ON           HIGH
  # define LED_OFF          LOW
  # define USB_MUX_PIN      -1
- # define BATTERY_VOLT_PIN      1      // Battery voltage on A1
- # define BATTERY_CURR_PIN      2      // Battery current on A2
- # define RSSI_PIN      3      // RSSI on A3 
+ # define BATTERY_VOLT_PIN      0      // Battery voltage on A0
+ # define BATTERY_CURR_PIN      1      // Battery current on A1
  # define CONFIG_INS_TYPE CONFIG_INS_OILPAN
  # define CONFIG_BARO     AP_BARO_BMP085
  # define CONFIG_COMPASS  AP_COMPASS_HMC5843
@@ -117,7 +113,6 @@
  #endif
  # define BATTERY_VOLT_PIN      1      // Battery voltage on A1
  # define BATTERY_CURR_PIN      2      // Battery current on A2
- # define RSSI_PIN      3      // RSSI on A3 
  # define CONFIG_INS_TYPE CONFIG_INS_MPU6000
  # ifdef APM2_BETA_HARDWARE
  #  define CONFIG_BARO     AP_BARO_BMP085
@@ -140,6 +135,10 @@
  #if MPNG_BOARD_TYPE == HK_RED_MULTIWII_PRO || MPNG_BOARD_TYPE == BLACK_VORTEX
 	 # define CONFIG_INS_TYPE   CONFIG_INS_ITG3200
 	 # define CONFIG_BARO       AP_BARO_BMP085_MPNG
+ #elif MPNG_BOARD_TYPE == PARIS_V5_OSD
+	 # define CONFIG_INS_TYPE   CONFIG_INS_ITG3200
+	 # define CONFIG_BARO       AP_BARO_MS5611
+	 # define CONFIG_MS5611_SERIAL AP_BARO_MS5611_I2C 
  #else
 	 # define CONFIG_INS_TYPE   CONFIG_INS_MPU6000_I2C
 	 # define CONFIG_BARO       AP_BARO_MS5611
@@ -152,9 +151,8 @@
  # define LED_ON           HIGH
  # define LED_OFF          LOW
  # define USB_MUX_PIN -1
- # define BATTERY_VOLT_PIN      1      // Battery voltage on A1
- # define BATTERY_CURR_PIN      2      // Battery current on A2
- # define RSSI_PIN      3      // RSSI on A3
+ # define BATTERY_VOLT_PIN      0      // Battery voltage on A0
+ # define BATTERY_CURR_PIN      1      // Battery current on A1
  # define CONFIG_SONAR_SOURCE SONAR_SOURCE_ANALOG_PIN
  # define MAGNETOMETER ENABLED
  # define CONFIG_COMPASS  AP_COMPASS_HMC5843
@@ -166,7 +164,6 @@
  # define LED_OFF          HIGH
  # define BATTERY_VOLT_PIN      1      // Battery voltage on A1
  # define BATTERY_CURR_PIN      2      // Battery current on A2
- # define RSSI_PIN      3      // RSSI on A3
  # define CONFIG_INS_TYPE CONFIG_INS_STUB
  # define CONFIG_BARO     AP_BARO_HIL
  # define CONFIG_COMPASS  AP_COMPASS_HIL
@@ -247,8 +244,8 @@
 // Battery monitoring
 //
 #ifndef VOLT_DIV_RATIO
-//# define VOLT_DIV_RATIO                 3.56   // This is the proper value for an on-board APM1 voltage divider with a 3.9kOhm resistor
-# define VOLT_DIV_RATIO		15.70	// This is the proper value for the AttoPilot 50V/90A sensor
+ # define VOLT_DIV_RATIO                 3.56   // This is the proper value for an on-board APM1 voltage divider with a 3.9kOhm resistor
+//# define VOLT_DIV_RATIO		15.70	// This is the proper value for the AttoPilot 50V/90A sensor
 //# define VOLT_DIV_RATIO		4.127	// This is the proper value for the AttoPilot 13.6V/45A sensor
 
 #endif
